@@ -2,6 +2,11 @@ import "dotenv/config";
 import express from "express";
 import { database } from "./database";
 import { adminJs, adminJsRouter } from "./adminjs";
+import path from "path";
+
+// Variáveis temporárias, serão removidas.
+process.env.TMPDIR = path.join(__dirname, "..", "uploads", "tmp");
+process.env.TEMP = process.env.TMPDIR;
 
 const app = express();
 
