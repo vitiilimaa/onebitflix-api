@@ -3,6 +3,7 @@ import express from "express";
 import { database } from "./database";
 import { adminJs, adminJsRouter } from "./adminjs";
 import path from "path";
+import router from "./routes";
 
 // Variáveis temporárias, serão removidas.
 process.env.TMPDIR = path.join(__dirname, "..", "uploads", "tmp");
@@ -13,6 +14,8 @@ const app = express();
 app.use(express.static("public"));
 
 app.use(adminJs.options.rootPath, adminJsRouter);
+
+app.use(router);
 
 const PORT = process.env.PORT || 3000;
 
