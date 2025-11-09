@@ -16,6 +16,15 @@ export const courseService = {
     return randomFeaturedCourses;
   },
 
+  getTopTenNewestCourses: async () => {
+    const newestCourses = await Course.findAll({
+      order: [["createdAt", "DESC"]],
+      limit: 10,
+    });
+
+    return newestCourses;
+  },
+
   findByIdWithEpisodes: async (id: string) => {
     const courseWithEpisodes = await Course.findByPk(id, {
       attributes: ["id", "name", "synopsis", ["thumbnail_url", "thumbnailUrl"]],
