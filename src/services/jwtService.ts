@@ -10,4 +10,8 @@ export const jwtService = {
       expiresIn: expiration,
     });
   },
+
+  verifyToken: (token: string, callbackfn: jwt.VerifyCallback) => {
+    return jwt.verify(token, process.env.JWT_SECRET_KEY as string, callbackfn);
+  },
 };
