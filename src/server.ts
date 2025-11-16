@@ -11,6 +11,8 @@ process.env.TEMP = process.env.TMPDIR;
 
 const app = express();
 
+app.use(express.json());
+
 app.use(express.static("public"));
 
 app.use(adminJs.options.rootPath, adminJsRouter);
