@@ -7,6 +7,7 @@ import { authController } from "./controllers/authController";
 const router = express.Router();
 
 router.post("/auth/register", authController.register);
+router.post("/auth/login", authController.login);
 
 router.get("/categories", categoryController.getAll);
 router.get("/categories/:id", categoryController.getById);
