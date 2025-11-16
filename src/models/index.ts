@@ -13,6 +13,9 @@ Course.hasMany(Favorite, { as: "FavoritesUsers", foreignKey: "course_id" });
 
 Episode.belongsTo(Course);
 
+Favorite.belongsTo(Course);
+Favorite.belongsTo(User);
+
 User.belongsToMany(Course, { through: Favorite });
 User.hasMany(Favorite, { as: "FavoritesCourses", foreignKey: "user_id" });
 

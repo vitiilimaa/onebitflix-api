@@ -25,6 +25,8 @@ router.get("/courses/:id", ensureAuth, courseController.getById);
 
 router.get("/episodes/stream", ensureAuthViaQuery, episodeController.stream);
 
-router.post("/favorites", ensureAuth, favoriteController.save);
+router.get("/favorites", ensureAuth, favoriteController.getAll);
+router.post("/favorites", ensureAuth, favoriteController.create);
+router.delete("/favorites/:id", ensureAuth, favoriteController.delete);
 
 export default router;
